@@ -34,13 +34,13 @@ public class MainActivity extends AppCompatActivity implements MainContact.mainV
         btn_add = findViewById(R.id.btn_add);
         recyclerView = findViewById(R.id.rcv_main);
 
-        btn_add.setOnClickListener(this);
-
         // koneksi ke database
         appDatabase = AppDatabase.inidb(getApplicationContext());
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         mainPresenter = new MainPresenter(this);
         mainPresenter.readData(appDatabase);
+
+        btn_add.setOnClickListener(this);
     }
 
     @Override
